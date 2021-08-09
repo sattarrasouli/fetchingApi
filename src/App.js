@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import {useState } from "react"
+//components **************************
+import Header from "./components/header"
+import Pagination from "./components/pagination"
+import Footer from "./components/footer"
+import Item from './components/item'
+
 
 function App() {
+  const [person, setPerson] = useState([])
+  const [num, setNum] = useState(1)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      <Item person={person} setPerson={setPerson} num={num}/>
+      <Pagination num={num} setNum={setNum} />
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App
